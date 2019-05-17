@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<HTML>
+
+<HEAD>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        time=0;
+        function Function() {
+            time+=1;
+            let d = document.getElementById("texts");
+            let new_mission = document.createElement("p");
+            let delete_button = document.createElement("input");
+            delete_button.type = "button";
+            delete_button.value = "delete";
+            delete_button.onclick=Function_delete;
+            new_mission.id= "id"+time;
+            new_mission.innerText = time+"  "+document.getElementById("text_id").value;
+            d.appendChild(new_mission);
+
+            new_mission.appendChild(delete_button);
+        }
+        function Function_delete(){
+            let d = document.getElementById("texts");
+            let del = document.getElementById("id"+time);
+            d.removeChild(del);
+            time-=1;
+        }
+
+    </script>
+
+</HEAD>
+<BODY>
+
+<p style="text-align: center;font-size: 60px">To do list!</p>
+<br>
+<br>
+Mission:<br>
+<form id="form_id" name="form_name">
+    <input type="text" name="text_name" id="text_id">
+    <input type="button" value="add" onclick="Function()">
+</form>
+<div id="texts"></div>
+
+</BODY>
+</HTML>
